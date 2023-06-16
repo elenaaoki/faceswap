@@ -23,13 +23,13 @@ with open(req_file) as file:
 
             if not launch.is_installed(package):
                 print(f"Install {package}")
-                launch.run_pip(f'install {package}', f"sd-webui-faceswap requirement: {package}")
+                launch.run_pip(f'install {package}', f"faceswap requirement: {package}")
             elif '==' in package:
                 package_name, package_version = package.split('==')
                 installed_version = pkg_resources.get_distribution(package_name).version
                 if installed_version != package_version:
                     print(f"Install {package}")
-                    launch.run_pip(f'install {package}', f"sd-webui-faceswap requirement: changing {package_name} version from {installed_version} to {package_version}")
+                    launch.run_pip(f'install {package}', f"faceswap requirement: changing {package_name} version from {installed_version} to {package_version}")
                 
         except Exception as e:
             print(e)
